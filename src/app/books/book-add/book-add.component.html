@@ -1,0 +1,26 @@
+<div class="form-content">
+  <form [formGroup]="form" enctype="multipart/form-data">
+    <div class="w-100 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="username" formControlName="title" [ngClass]="{'invalid': validField('title')}"/>
+      <label class="mdl-textfield__label" for="username">Tytuł</label>
+    </div>
+    <div class="w-100 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="author" formControlName="author"/>
+      <label class="mdl-textfield__label" for="author">Autor</label>
+    </div>
+
+    <mat-form-field class="w-100">
+      <mat-select placeholder="Typ" formControlName="type">
+        <mat-option *ngFor="let t of types" [value]="t.id" >
+          {{ t.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-group">
+      <label>Obraz</label>
+      <input type="file" id="image" (change)="onFileChange($event)" #fileInput>
+    </div>
+    <input type="submit" value="Submit" (click)="submit()">
+  </form>
+</div>

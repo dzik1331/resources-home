@@ -1,0 +1,42 @@
+mat-grid-list {
+  width: 100%;
+}
+
+mat-list-item {
+  height: auto !important;
+  box-shadow: 1px 1px 3px 1px #6f6f6f;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  .image-book {
+    width: 100%;
+    min-height: 210px;
+    background: no-repeat 100%;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: top;
+  }
+}
+
+.mat-grid-tile-app {
+  padding: 0;
+  height: 10%;
+}
+
+.mdl-grid {
+  width: 100%;
+  padding: 0;
+  .title {
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.mdl-grid.title-content {
+  border-bottom: 0.5px solid #6f6f6f;
+}
+
+.mat-list {
+  padding: 5px;
+}
+
