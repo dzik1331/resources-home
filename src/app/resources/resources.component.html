@@ -3,19 +3,19 @@
     <button (click)="sidenav.toggle()"><i class="fa fa-bars" aria-hidden="true"></i></button>
   </mat-toolbar>
 
-  <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-container class="sidenav-container transparent">
     <mat-sidenav #sidenav mode="side" opened="false" class="sidenav-menu">
       <mat-list>
         <mat-list-item>
-          <button mat-raised-button class="menu-button" [routerLink]="['list']">Lista</button>
+          <button mat-raised-button class="menu-button" [routerLink]="['list']" (click)="sidenav.toggle()">Lista</button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-raised-button class="menu-button" [routerLink]="['add']">Dodaj</button>
+          <button mat-raised-button class="menu-button" [routerLink]="['add']" (click)="sidenav.toggle()">Dodaj</button>
         </mat-list-item>
       </mat-list>
     </mat-sidenav>
 
-    <mat-sidenav-content>
+    <mat-sidenav-content class="">
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 

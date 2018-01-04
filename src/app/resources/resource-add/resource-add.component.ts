@@ -2,19 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import 'material-design-lite';
 import {RestService} from '../rest.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-book-add',
-  templateUrl: './book-add.component.html',
-  styleUrls: ['./book-add.component.scss']
+  templateUrl: './resource-add.component.html',
+  styleUrls: ['./resource-add.component.scss']
 })
-export class BookAddComponent implements OnInit {
+export class ResourceAddComponent implements OnInit {
 
   public form: any;
   public types: any[];
   public submitClick: boolean = false;
+  public selectFile: any;
 
-  constructor(private restService: RestService, private fb: FormBuilder) {
+  constructor(private restService: RestService, private fb: FormBuilder, private router: Router) {
   }
 
   ngOnInit() {
@@ -42,21 +44,19 @@ export class BookAddComponent implements OnInit {
     this.submitClick = true;
     this.form.updateValueAndValidity();
     if (this.form.valid) {
-      console.debug('Valid');
-    } else {
-      console.debug('Invalid');
+      console.debug(this.form.controls);
+      const data = {
+        title: this.form.get('title').value,
+        author: this.form.get('author').value,
+        type: this.form.get('type').value,
+        image: this.form.get('image').value,
+      };
+      this.restService.addResource(data).subscribe((result) => {
+        this.router.navigate(['/resources/list']);
+      }, (error) => {
+        console.error(error);
+      });
     }
-    // console.debug(this.form.controls);
-    // const data = {
-    //   title: this.form.get('title').value,
-    //   author: this.form.get('author').value,
-    //   type: this.form.get('type').value,
-    //   image: this.form.get('image').value,
-    // };
-    // this.restService.addBook(data).subscribe((result) => {
-    // }, (error) => {
-    //   console.error(error);
-    // });
   }
 
   onFileChange(event) {
@@ -65,6 +65,7 @@ export class BookAddComponent implements OnInit {
       const file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = () => {
+        this.selectFile = file.name;
         this.form.get('image').setValue({
           filename: file.name,
           filetype: file.type,

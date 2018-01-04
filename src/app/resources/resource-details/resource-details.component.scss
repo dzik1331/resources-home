@@ -1,0 +1,62 @@
+.h-30 {
+  height: 30%;
+}
+
+.image-book {
+  width: 100%;
+  min-height: 100%;
+  background: no-repeat 100%;
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: top;
+}
+
+.mdl-grid.borrows {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  .mdl-cell {
+    margin: 0;
+  }
+  .mdl-cell:nth-child(2) {
+    margin: 0 0 0 25px;
+    text-align: center;
+  }
+}
+
+.mat-list-item {
+  height: auto !important;
+  box-shadow: 1px 1px 6px 1px #8c8b8b;
+  margin-bottom: 5px;
+  padding: 10px;
+  .app-header {
+    font-size: 14px;
+  }
+}
+
+.return {
+  background: #71e271;
+}
+
+.ico-action {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  &:hover {
+    color: grey;
+    transition: color 1s;
+  }
+}
+.m-r-10 {
+  margin-right: 10px;
+}
+
+.app-header {
+  font-weight: 800;
+}
+
+.add-borrow-btn {
+  position: absolute;
+  right: 50px;
+  font-size: 25px;
+}

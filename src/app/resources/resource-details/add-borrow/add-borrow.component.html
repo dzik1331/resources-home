@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Nowe wypożyczenie</h1>
+<div mat-dialog-content>
+  <p>Podaj imię pożyczającego</p>
+  <mat-form-field>
+    <input matInput tabindex="1" [(ngModel)]="person">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Anuluj</button>
+  <button mat-button [mat-dialog-close]="person" cdkFocusInitial>Dodaj</button>
+</div>

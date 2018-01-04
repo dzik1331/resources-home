@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 body {
   margin: 0;
 }
@@ -10,4 +11,27 @@ body {
 
 .w-100 {
   width: 100% !important;
+}
+
+.main-b {
+  background: #a50000;
+}
+
+app-resource-details {
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  overflow: auto;
+}
+
+app-resource-details .mat-list-item-content {
+  display: block !important;
+}
+
+.color-green {
+  color: #71e271;
+}
+
+.color-red {
+  color: red;
 }

@@ -4,12 +4,12 @@ import {ModuleWithProviders} from '@angular/core';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'books',
+    redirectTo: 'resources',
     pathMatch: 'full'
   },
   {
-    path: 'books',
-    loadChildren: './books/books.module#BooksModule'
+    path: 'resources',
+    loadChildren: './resources/resources.module#ResourcesModule'
   },
   {
     path: '**',

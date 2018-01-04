@@ -1,0 +1,31 @@
+.form-content {
+  padding: 0 30px 0 30px;
+}
+
+.invalid {
+  border: 0.5px red solid;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #a51f1f;
+  color: white;
+}
+
+.submit-btn {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #a51f1f;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+}

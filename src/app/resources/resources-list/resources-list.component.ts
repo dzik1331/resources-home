@@ -3,10 +3,10 @@ import {RestService} from '../rest.service';
 
 @Component({
   selector: 'app-books-list',
-  templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.scss']
+  templateUrl: './resources-list.component.html',
+  styleUrls: ['./resources-list.component.scss']
 })
-export class BooksListComponent implements OnInit {
+export class ResourcesListComponent implements OnInit {
 
   public items: any[] = [];
 
@@ -14,7 +14,7 @@ export class BooksListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rest.bookList().subscribe((result: any[]) => {
+    this.rest.resourcesList().subscribe((result: any[]) => {
       console.debug(result);
       this.items = result;
     }, (error) => {
