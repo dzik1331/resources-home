@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {RestService} from './rest.service';
 
 @Component({
   selector: 'app-resources',
@@ -7,15 +7,24 @@ import {Router} from '@angular/router';
   styleUrls: ['./resources.component.scss']
 })
 export class ResourcesComponent implements OnInit {
+  public clearing: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private rest: RestService) {
   }
 
   ngOnInit() {
   }
 
 
-  test() {
-    this.router.navigate(['/add']);
+  clearImages(target) {
+    this.clearing = true;
+    setTimeout(() => {
+      this.rest.clearImages().subscribe(() => {
+        this.clearing = false;
+        target.toggle();
+      }, (error) => {
+        console.error(error);
+      });
+    }, 1000);
   }
 }

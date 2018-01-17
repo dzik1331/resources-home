@@ -7,10 +7,18 @@
     <mat-sidenav #sidenav mode="side" opened="false" class="sidenav-menu">
       <mat-list>
         <mat-list-item>
-          <button mat-raised-button class="menu-button" [routerLink]="['list']" (click)="sidenav.toggle()">Lista</button>
+          <button mat-raised-button class="menu-button" [routerLink]="['list']" (click)="sidenav.toggle()">Lista
+          </button>
         </mat-list-item>
         <mat-list-item>
           <button mat-raised-button class="menu-button" [routerLink]="['add']" (click)="sidenav.toggle()">Dodaj</button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-raised-button class="menu-button" (click)="clearImages(sidenav)"><i *ngIf="clearing"
+                                                                                                     class="fa fa-spinner fa-spin fa-3x fa-fw"
+                                                                                                     aria-hidden="true"></i>Usuń
+            zbędne obrazy
+          </button>
         </mat-list-item>
       </mat-list>
     </mat-sidenav>

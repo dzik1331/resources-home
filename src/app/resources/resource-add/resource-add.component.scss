@@ -21,11 +21,20 @@ input[type="file"] {
 }
 
 .submit-btn {
-  border: 1px solid #ccc;
-  padding: 6px 12px;
   border-radius: 5px;
   background: #a51f1f;
-  width: 100%;
-  margin-top: 10px;
   color: white;
+  margin-right: 10px;
+  min-width: 95px;
+}
+
+.fa-minus-circle {
+  float: right;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1151px) {
+  .form-content {
+    padding: 0 25% 0 25%;
+  }
 }

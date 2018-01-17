@@ -10,10 +10,10 @@ import {
 } from '@angular/material';
 import {ResourcesListComponent} from './resources-list/resources-list.component';
 import {RestService} from './rest.service';
-import {ResourceAddComponent} from './resource-add/resource-add.component';
+import {DeleteResourceConfirmComponent, ResourceAddComponent} from './resource-add/resource-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ResourceDetailsComponent} from './resource-details/resource-details.component';
-import { AddBorrowComponent } from './resource-details/add-borrow/add-borrow.component';
+import {DeleteBorrowConfirmComponent, ResourceDetailsComponent} from './resource-details/resource-details.component';
+import {AddBorrowComponent} from './resource-details/add-borrow/add-borrow.component';
 import {OrderModule} from 'ngx-order-pipe';
 
 @NgModule({
@@ -40,11 +40,18 @@ import {OrderModule} from 'ngx-order-pipe';
     ResourcesListComponent,
     ResourceAddComponent,
     ResourceDetailsComponent,
-    AddBorrowComponent],
+    AddBorrowComponent,
+    DeleteBorrowConfirmComponent,
+    DeleteResourceConfirmComponent
+  ],
   providers: [
     RestService
   ],
-  entryComponents: [AddBorrowComponent]
+  entryComponents: [
+    AddBorrowComponent,
+    DeleteBorrowConfirmComponent,
+    DeleteResourceConfirmComponent
+  ]
 })
 export class ResourcesModule {
 }

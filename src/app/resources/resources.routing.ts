@@ -24,6 +24,10 @@ export const routes: Routes = [
         component: ResourceAddComponent
       },
       {
+        path: 'edit/:id',
+        component: ResourceAddComponent
+      },
+      {
         path: 'details/:id',
         component: ResourceDetailsComponent
       }

@@ -1,5 +1,6 @@
 .h-30 {
   height: 30%;
+  min-height: 200px;
 }
 
 .image-book {
@@ -59,4 +60,17 @@
   position: absolute;
   right: 50px;
   font-size: 25px;
+}
+
+.back-btn {
+  position: fixed;
+  top: 15px;
+  right: 10px;
+}
+
+.edit-btn {
+  font-size: 25px;
+  position: absolute;
+  color: black;
+  cursor: pointer;
 }

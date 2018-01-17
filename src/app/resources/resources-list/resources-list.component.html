@@ -6,23 +6,10 @@
         <i class="fa fa-gift" aria-hidden="true" *ngIf="item.isBorrow"></i>
       </div>
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--4-col-desktop">
-          <div class="image-book" [ngStyle]="{'background-image':'url(http://localhost:3000/images/' + item.img + ')'}">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+          <div class="image-book" [ngStyle]="{'background-image':'url(' + url + '/images/' + item.img + ')'}">
           <i class="fa fa-info-circle info" aria-hidden="true" [routerLink]="['../details', item.id]"></i>
         </div>
-
-        </div>
-        <div class="mdl-cell mdl-cell--2-col-phone mdl-cell--8-col-desktop">
-          <div *ngIf="item.author" class="mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--12-col-desktop mdl-cell--8-col-tablet">
-              {{item.author}}
-            </div>
-          </div>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--12-col-desktop mdl-cell--8-col-tablet">
-              {{item.type}}
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -35,3 +35,9 @@ app-resource-details .mat-list-item-content {
 .color-red {
   color: red;
 }
+
+@media screen and (min-width: 1151px) {
+  .details-content {
+    padding: 0 25% 0 25%;
+  }
+}

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from '../rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {AddBorrowComponent} from './add-borrow/add-borrow.component';
 import {isNullOrUndefined} from 'util';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-resource-details',
@@ -15,7 +16,7 @@ export class ResourceDetailsComponent implements OnInit {
   private resourceId: any = null;
   public resource: any = null;
   public loaded: boolean = false;
-
+  public url: string = environment.restUrl;
   constructor(private rest: RestService, private route: ActivatedRoute, private router: Router,
               private dialog: MatDialog) {
   }
@@ -35,7 +36,7 @@ export class ResourceDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(AddBorrowComponent, {width: '250px'});
     dialogRef.afterClosed().subscribe(result => {
       if (!isNullOrUndefined(result)) {
-        this.rest.addBorrow(result, this.resourceId).subscribe((result) => {
+        this.rest.addBorrow(result, this.resourceId).subscribe(() => {
           this.getData(this.resourceId);
         }, (error) => {
           console.error(error);
@@ -53,7 +54,7 @@ export class ResourceDetailsComponent implements OnInit {
     });
   }
 
-  isActiveBorrow(data): boolean {
+  public isActiveBorrow(data): boolean {
     let result = false;
     if (isNullOrUndefined(data)) {
       return result;
@@ -67,4 +68,35 @@ export class ResourceDetailsComponent implements OnInit {
     return result;
   }
 
+  public deleteBorrow(id) {
+    const dialogRef = this.dialog.open(DeleteBorrowConfirmComponent, {width: '250px', disableClose: true});
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.rest.deleteBorrow(id).subscribe(() => {
+          this.getData(this.resourceId);
+        }, (error) => {
+          console.error(error);
+        });
+      }
+    });
+  }
+
+  public back() {
+    this.router.navigate(['/resources/list']);
+  }
+
+}
+
+@Component({
+  selector: 'app-delete-borrow-confirm',
+  templateUrl: './delete-borrow-confirm.component.html',
+  styleUrls: ['./resource-details.component.scss']
+})
+export class DeleteBorrowConfirmComponent {
+  constructor(public dialogRef: MatDialogRef<DeleteBorrowConfirmComponent>) {
+  }
+
+  closeConfirm(result) {
+    this.dialogRef.close(result);
+  }
 }
