@@ -9,8 +9,12 @@ export class RestService {
   constructor(private http: HttpClient) {
   }
 
-  public resourcesList() {
-    return this.http.get(environment.restUrl + '/list');
+  public resourcesList(filter = null, types = null) {
+    if (filter || types) {
+      return this.http.post(environment.restUrl + '/list', {filter: filter, types: types});
+    } else {
+      return this.http.get(environment.restUrl + '/list');
+    }
   }
 
   public resource(id: any) {

@@ -67,3 +67,29 @@ mat-list-item {
   }
 }
 
+.filter-content {
+  position: fixed;
+  left: 48px;
+  top: 15px;
+  input {
+    height: 25px;
+    margin-right: 5px;
+  }
+  i {
+    font-size: 20px;
+    background: silver;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    cursor: pointer;
+  }
+}
+
+.count-content {
+  font-weight: bold;
+  border-bottom: 0.5px solid black;
+  padding: 5px;
+}
+
