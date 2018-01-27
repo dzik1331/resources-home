@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {RestService} from '../rest.service';
+import {RestService} from '../services/rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {AddBorrowComponent} from './add-borrow/add-borrow.component';
 import {isNullOrUndefined} from 'util';
 import {environment} from '../../../environments/environment';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-resource-details',
@@ -17,8 +18,9 @@ export class ResourceDetailsComponent implements OnInit {
   public resource: any = null;
   public loaded: boolean = false;
   public url: string = environment.restUrl;
+
   constructor(private rest: RestService, private route: ActivatedRoute, private router: Router,
-              private dialog: MatDialog) {
+              private dialog: MatDialog, private location: Location) {
   }
 
   ngOnInit() {
@@ -82,7 +84,17 @@ export class ResourceDetailsComponent implements OnInit {
   }
 
   public back() {
-    this.router.navigate(['/resources/list']);
+    this.location.back();
+    // let pathurl = '';
+    // this.route.pathFromRoot.forEach((path) => {
+    //   if (this.route.url != path.url) {
+    //     path.url.subscribe((url) => {
+    //       url.forEach((e) => {
+    //         pathurl += e + '/';
+    //       });
+    //     });
+    //   }
+    // });
   }
 
 }

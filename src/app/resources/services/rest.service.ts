@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
@@ -9,11 +9,11 @@ export class RestService {
   constructor(private http: HttpClient) {
   }
 
-  public resourcesList(filter = null, types = null) {
+  public resourcesList(id, filter = null, types = null) {
     if (filter || types) {
-      return this.http.post(environment.restUrl + '/list', {filter: filter, types: types});
+      return this.http.post(environment.restUrl + `/list/${id}`, {filter: filter, types: types});
     } else {
-      return this.http.get(environment.restUrl + '/list');
+      return this.http.get(environment.restUrl + `/list/${id}`);
     }
   }
 

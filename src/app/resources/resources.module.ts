@@ -9,12 +9,14 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {ResourcesListComponent} from './resources-list/resources-list.component';
-import {RestService} from './rest.service';
+import {RestService} from './services/rest.service';
 import {DeleteResourceConfirmComponent, ResourceAddComponent} from './resource-add/resource-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DeleteBorrowConfirmComponent, ResourceDetailsComponent} from './resource-details/resource-details.component';
 import {AddBorrowComponent} from './resource-details/add-borrow/add-borrow.component';
 import {OrderModule} from 'ngx-order-pipe';
+import { ResourcesMenuComponent } from './resources-menu/resources-menu.component';
+import {ResourcesService} from './services/resources.service';
 
 @NgModule({
   imports: [
@@ -42,10 +44,12 @@ import {OrderModule} from 'ngx-order-pipe';
     ResourceDetailsComponent,
     AddBorrowComponent,
     DeleteBorrowConfirmComponent,
-    DeleteResourceConfirmComponent
+    DeleteResourceConfirmComponent,
+    ResourcesMenuComponent
   ],
   providers: [
-    RestService
+    RestService,
+    ResourcesService
   ],
   entryComponents: [
     AddBorrowComponent,

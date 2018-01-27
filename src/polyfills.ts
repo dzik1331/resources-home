@@ -53,12 +53,10 @@ import 'core-js/es7/reflect';
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 
-
 /***************************************************************************************************
  * Zone JS is required by Angular itself.
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
-
 
 
 /***************************************************************************************************
@@ -74,3 +72,13 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * Need to import at least one locale-data with intl.
  */
 // import 'intl/locale-data/jsonp/en';
+
+declare global {
+  interface Array<T> {
+    randomElement();
+  }
+}
+
+Array.prototype.randomElement = function () {
+  return this[Math.floor(Math.random() * this.length)];
+};

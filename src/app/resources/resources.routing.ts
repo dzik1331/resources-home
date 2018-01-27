@@ -4,6 +4,7 @@ import {ResourcesComponent} from './resources.component';
 import {ResourcesListComponent} from './resources-list/resources-list.component';
 import {ResourceAddComponent} from './resource-add/resource-add.component';
 import {ResourceDetailsComponent} from './resource-details/resource-details.component';
+import {ResourcesMenuComponent} from './resources-menu/resources-menu.component';
 
 export const routes: Routes = [
   {
@@ -12,11 +13,15 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'list',
+        redirectTo: 'main',
         pathMatch: 'full'
       },
       {
-        path: 'list',
+        path: 'main',
+        component: ResourcesMenuComponent
+      },
+      {
+        path: 'list/:id',
         component: ResourcesListComponent
       },
       {

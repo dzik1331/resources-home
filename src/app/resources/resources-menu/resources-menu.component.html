@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="menu" *ngIf="loaded">
+    <div *ngFor="let typeItem of types; trackBy: trackFnc" class="item-menu"
+         [ngStyle]="{'background': typeItem.color}"
+         [routerLink]="['../list',typeItem.id]">
+     <span>
+       {{typeItem.name}}
+     </span>
+    </div>
+  </div>
+</div>
+

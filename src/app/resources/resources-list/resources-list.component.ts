@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {RestService} from '../rest.service';
+import {RestService} from '../services/rest.service';
 import {environment} from '../../../environments/environment';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-books-list',
@@ -12,25 +14,32 @@ export class ResourcesListComponent implements OnInit {
   public items: any[] = [];
   public filterText: string;
   public url: string = environment.restUrl;
+  private typeId: number = 0;
 
-  constructor(private rest: RestService) {
+  constructor(private rest: RestService,
+              private route: ActivatedRoute,
+              private location: Location) {
   }
 
   ngOnInit() {
-    this.rest.resourcesList().subscribe((result: any[]) => {
+    this.typeId = +this.route.snapshot.paramMap.get('id');
+    this.rest.resourcesList(this.typeId).subscribe((result: any[]) => {
       this.items = result;
     }, (error) => {
       console.error(error);
     });
   }
 
-  doFilter() {
-    console.debug(this.filterText);
-    this.rest.resourcesList(this.filterText).subscribe((result: any[]) => {
+  public doFilter() {
+    this.rest.resourcesList(this.typeId, this.filterText).subscribe((result: any[]) => {
       this.items = result;
     }, (error) => {
       console.error(error);
     });
+  }
+
+  public back() {
+    this.location.back();
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import 'material-design-lite';
-import {RestService} from '../rest.service';
+import {RestService} from '../services/rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {Location} from '@angular/common';

@@ -25,8 +25,17 @@
 
 .menu-button {
   width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  cursor: pointer;
 }
 
 .transparent {
   background: transparent;
+}
+
+@media screen and (min-width: 800px) {
+  .sidenav-menu {
+    width: 20%;
+  }
 }
