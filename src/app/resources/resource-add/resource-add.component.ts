@@ -24,6 +24,7 @@ export class ResourceAddComponent implements OnInit {
   public selectedType: any;
   public update: boolean = false;
   public resourceId: any;
+
   constructor(private restService: RestService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute,
               private location: Location, private dialog: MatDialog) {
   }
@@ -62,7 +63,8 @@ export class ResourceAddComponent implements OnInit {
         title: [data ? data.details[0].title : null, Validators.compose([Validators.required])],
         author: [data ? data.details[0].author : null],
         type: [null, Validators.compose([Validators.required])],
-        image: [data ? data.details[0].img : null]
+        image: [data ? data.details[0].img : null],
+        publishing: [data ? data.details[0].publishing : null]
       }
     );
 
@@ -91,10 +93,11 @@ export class ResourceAddComponent implements OnInit {
         author: this.form.get('author').value,
         type: this.form.get('type').value,
         image: this.form.get('image').value,
+        publishing: this.form.get('publishing').value
       };
       if (!this.resource) {
         this.restService.addResource(data).subscribe((result) => {
-          this.router.navigate(['/resources/list']);
+          this.router.navigate(['/resources/list/' + this.form.get('type').value]);
         }, (error) => {
           console.error(error);
         });
@@ -143,7 +146,7 @@ export class ResourceAddComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.restService.deleteResource(id).subscribe(() => {
-          this.router.navigate(['resources/list']);
+          this.router.navigate(['/resources/list/' + this.form.get('type').value]);
         }, (error) => {
           console.error(error);
         });

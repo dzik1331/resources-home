@@ -17,6 +17,9 @@ import {AddBorrowComponent} from './resource-details/add-borrow/add-borrow.compo
 import {OrderModule} from 'ngx-order-pipe';
 import { ResourcesMenuComponent } from './resources-menu/resources-menu.component';
 import {ResourcesService} from './services/resources.service';
+import { NormalListComponent } from './resources-list/normal-list/normal-list.component';
+import { PicturesListComponent } from './resources-list/pictures-list/pictures-list.component';
+import { FullImageComponent } from './resource-details/full-image/full-image.component';
 
 @NgModule({
   imports: [
@@ -45,7 +48,10 @@ import {ResourcesService} from './services/resources.service';
     AddBorrowComponent,
     DeleteBorrowConfirmComponent,
     DeleteResourceConfirmComponent,
-    ResourcesMenuComponent
+    ResourcesMenuComponent,
+    NormalListComponent,
+    PicturesListComponent,
+    FullImageComponent
   ],
   providers: [
     RestService,

@@ -1,0 +1,22 @@
+.full-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  .image {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+.back {
+  position: fixed;
+  color: white;
+  top: 5px;
+  font-size: 25px;
+  cursor: pointer;
+}

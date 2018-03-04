@@ -13,7 +13,6 @@ export class ResourcesListComponent implements OnInit {
 
   public items: any[] = [];
   public filterText: string;
-  public url: string = environment.restUrl;
   private typeId: number = 0;
 
   constructor(private rest: RestService,

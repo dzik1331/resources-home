@@ -4,7 +4,7 @@
   <div class="mdl-grid h-30">
     <div class="mdl-cell mdl-cell--12-col">
       <div *ngIf="loaded" class="image-book"
-           [ngStyle]="{'background-image':'url('+ url +'/images/' + resource.details[0].img + ')'}">
+           [ngStyle]="{'background-image':'url('+ url +'/images/thumb_' + resource.details[0].img + ')'}" [routerLink]="['../../full', resource.details[0].img]">
       </div>
     </div>
   </div>
@@ -23,6 +23,14 @@
     </div>
     <div class="mdl-cell mdl-cell--11-col mdl-cell--3-col-phone mdl-cell--7-col-tablet">
       {{resource?.details[0].author}}
+    </div>
+  </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--1-col-phone mdl-cell--1-col-tablet">
+      <span class="app-header">Wydawca</span>
+    </div>
+    <div class="mdl-cell mdl-cell--11-col mdl-cell--3-col-phone mdl-cell--7-col-tablet">
+      {{resource?.details[0].publishing}}
     </div>
   </div>
   <div class="mdl-grid">
@@ -85,3 +93,4 @@
 
   </mat-expansion-panel>
 </div>
+<router-outlet></router-outlet>

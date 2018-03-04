@@ -11,6 +11,11 @@
       <label class="mdl-textfield__label" for="author">Autor</label>
     </div>
 
+    <div class="w-100 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="publishing" formControlName="publishing"/>
+      <label class="mdl-textfield__label" for="publishing">Wydawca</label>
+    </div>
+
     <mat-form-field class="w-100">
       <mat-select placeholder="Typ" formControlName="type" [(value)]="selectedType">
         <mat-option *ngFor="let t of types" [value]="t.id">

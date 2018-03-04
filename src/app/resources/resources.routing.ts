@@ -5,6 +5,7 @@ import {ResourcesListComponent} from './resources-list/resources-list.component'
 import {ResourceAddComponent} from './resource-add/resource-add.component';
 import {ResourceDetailsComponent} from './resource-details/resource-details.component';
 import {ResourcesMenuComponent} from './resources-menu/resources-menu.component';
+import {FullImageComponent} from './resource-details/full-image/full-image.component';
 
 export const routes: Routes = [
   {
@@ -34,7 +35,11 @@ export const routes: Routes = [
       },
       {
         path: 'details/:id',
-        component: ResourceDetailsComponent
+        component: ResourceDetailsComponent,
+      },
+      {
+        path: 'full/:fileName',
+        component: FullImageComponent
       }
     ]
   }

@@ -5,20 +5,6 @@
 <div class="count-content">
   Ilość: {{items.length}}
 </div>
-<mat-list>
-  <mat-list-item *ngFor="let item of items | orderBy:'title'">
-    <div class="mdl-grid">
-      <div class="mdl-grid title-content">
-        <span class="title">{{item.title}}</span>
-        <i class="fa fa-gift" aria-hidden="true" *ngIf="item.isBorrow"></i>
-      </div>
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-          <div class="image-book" [ngStyle]="{'background-image':'url(' + url + '/images/' + item.img + ')'}">
-            <i class="fa fa-info-circle info" aria-hidden="true" [routerLink]="['../../details', item.id]"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </mat-list-item>
-</mat-list>
+<!--<app-normal-list [items]="items"></app-normal-list>-->
+<app-pictures-list [items]="items"></app-pictures-list>
+
