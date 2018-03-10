@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "assets/variable";
 
 body {
   margin: 0;
@@ -14,7 +15,7 @@ body {
 }
 
 .main-b {
-  background: #a50000;
+  background: #000000;
 }
 
 app-resource-details {
@@ -43,7 +44,7 @@ app-resource-details .mat-list-item-content {
 }
 
 mat-sidenav {
-  background: #a51f1f !important;
+  background: $mainColor !important;
   padding: 6px;
   margin-left: -10px;
 }

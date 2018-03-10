@@ -1,0 +1,7 @@
+<div class="right-menu" [@stateState]="state">
+  <span class="toggle-handler" (click)="toggle()"></span>
+  <svg-icon src="/assets/list.svg" class="menu-ico" (click)="setType(1)"></svg-icon>
+  <svg-icon src="/assets/images.svg" class="menu-ico" (click)="setType(2)"></svg-icon>
+  <svg-icon src="/assets/list2.svg" class="menu-ico" (click)="setType(3)"></svg-icon>
+  <span class="handler" (click)="toggle()"></span>
+</div>

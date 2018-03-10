@@ -14,4 +14,12 @@ export class ResourcesService {
   randomColor(): string {
     return this.colors.randomElement();
   }
+
+  setTypeListStorage(type: number) {
+    localStorage.setItem('listType', String(type));
+  }
+
+  getTypeListStorage() {
+    return localStorage.getItem('listType');
+  }
 }

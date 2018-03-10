@@ -20,6 +20,10 @@ import {ResourcesService} from './services/resources.service';
 import { NormalListComponent } from './resources-list/normal-list/normal-list.component';
 import { PicturesListComponent } from './resources-list/pictures-list/pictures-list.component';
 import { FullImageComponent } from './resource-details/full-image/full-image.component';
+import { RightMenuComponent } from './resources-list/right-menu/right-menu.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {AngularSvgIconModule} from 'angular-svg-icon';
+import { TitleListComponent } from './resources-list/title-list/title-list.component';
 
 @NgModule({
   imports: [
@@ -38,7 +42,8 @@ import { FullImageComponent } from './resource-details/full-image/full-image.com
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    OrderModule
+    OrderModule,
+    AngularSvgIconModule
   ],
   declarations: [
     ResourcesComponent,
@@ -51,7 +56,9 @@ import { FullImageComponent } from './resource-details/full-image/full-image.com
     ResourcesMenuComponent,
     NormalListComponent,
     PicturesListComponent,
-    FullImageComponent
+    FullImageComponent,
+    RightMenuComponent,
+    TitleListComponent
   ],
   providers: [
     RestService,
