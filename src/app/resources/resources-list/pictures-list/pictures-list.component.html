@@ -1,6 +1,7 @@
-<div class="mdl-grid">
-  <div *ngFor="let item of items" class="mdl-cell mdl-cell--2-col">
-    <div class="image-book" [ngStyle]="{'background-image':'url(' + url + '/images/thumb_' + item.img + ')'}" [routerLink]="['../../details', item.id]">
+<div class="list">
+  <div *ngFor="let item of items" class="list-item">
+    <div class="image-book" [ngStyle]="{'background-image':'url(' + url + '/images/thumb_' + item.img + ')'}"
+         [routerLink]="['../details', item.id]">
     </div>
-    <hr>
   </div>
+</div>

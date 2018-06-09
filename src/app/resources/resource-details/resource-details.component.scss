@@ -3,6 +3,10 @@
   min-height: 200px;
 }
 
+.image-content {
+  min-height: 220px;
+}
+
 .image-book {
   width: 100%;
   min-height: 100%;
@@ -13,31 +17,12 @@
   cursor: pointer;
 }
 
-.mdl-grid.borrows {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  .mdl-cell {
-    margin: 0;
-  }
-  .mdl-cell:nth-child(2) {
-    margin: 0 0 0 25px;
-    text-align: center;
-  }
-}
-
-.mat-list-item {
-  height: auto !important;
-  box-shadow: 1px 1px 6px 1px #8c8b8b;
-  margin-bottom: 5px;
-  padding: 10px;
-  .app-header {
-    font-size: 14px;
-  }
+.app-header {
+  font-size: 14px;
 }
 
 .return {
-  background: #71e271;
+  border: 1px solid #71e271;
 }
 
 .ico-action {
@@ -49,6 +34,7 @@
     transition: color 1s;
   }
 }
+
 .m-r-10 {
   margin-right: 10px;
 }
@@ -72,6 +58,22 @@
 .edit-btn {
   font-size: 25px;
   position: absolute;
-  color: black;
+  color: white;
   cursor: pointer;
+}
+
+.accordion-item {
+  box-shadow: 1px 1px 1px 1px grey;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.details-content {
+  color: white;
+}
+
+.btn-borrow {
+  background: #940000;
+  color: white;
+  border-radius: 5px;
 }

@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import 'material-design-lite';
 import {RestService} from '../services/rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {Location} from '@angular/common';
-import {AddBorrowComponent} from '../resource-details/add-borrow/add-borrow.component';
-import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-book-add',
@@ -26,7 +23,7 @@ export class ResourceAddComponent implements OnInit {
   public resourceId: any;
 
   constructor(private restService: RestService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute,
-              private location: Location, private dialog: MatDialog) {
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -52,12 +49,6 @@ export class ResourceAddComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      componentHandler.upgradeDom();
-    }, 100);
-  }
-
   private initForm(data) {
     this.form = this.fb.group({
         title: [data ? data.details[0].title : null, Validators.compose([Validators.required])],
@@ -81,7 +72,6 @@ export class ResourceAddComponent implements OnInit {
     }
 
     this.formLoaded = true;
-    componentHandler.upgradeDom();
   }
 
   public submit(): void {
@@ -97,7 +87,7 @@ export class ResourceAddComponent implements OnInit {
       };
       if (!this.resource) {
         this.restService.addResource(data).subscribe((result) => {
-          this.router.navigate(['/resources/list/' + this.form.get('type').value]);
+          this.router.navigate(['/resources/main']);
         }, (error) => {
           console.error(error);
         });
@@ -142,30 +132,16 @@ export class ResourceAddComponent implements OnInit {
   }
 
   public deleteResource(id) {
-    const dialogRef = this.dialog.open(DeleteResourceConfirmComponent, {width: '250px', disableClose: true});
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.restService.deleteResource(id).subscribe(() => {
-          this.router.navigate(['/resources/list/' + this.form.get('type').value]);
-        }, (error) => {
-          console.error(error);
-        });
-      }
-    });
+    // const dialogRef = this.dialog.open(DeleteResourceConfirmComponent, {width: '250px', disableClose: true});
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (result) {
+    //     this.restService.deleteResource(id).subscribe(() => {
+    //       this.router.navigate(['/resources/list/' + this.form.get('type').value]);
+    //     }, (error) => {
+    //       console.error(error);
+    //     });
+    //   }
+    // });
   }
 
-}
-
-@Component({
-  selector: 'app-delete-resource-confirm',
-  templateUrl: './delete-resource-confirm.component.html',
-  styleUrls: ['./resource-add.component.scss']
-})
-export class DeleteResourceConfirmComponent {
-  constructor(public dialogRef: MatDialogRef<DeleteResourceConfirmComponent>) {
-  }
-
-  closeConfirm(result) {
-    this.dialogRef.close(result);
-  }
 }

@@ -1,28 +1,29 @@
 <div class="form-content">
   <i *ngIf="update" class="fa fa-minus-circle color-red" (click)="deleteResource(resourceId)"></i>
   <form *ngIf="formLoaded" [formGroup]="form" enctype="multipart/form-data">
-    <div class="w-100 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="username" formControlName="title"
+
+    <div class="form-group">
+      <label>Tytuł</label>
+      <input class="form-control" type="text" classid="username" formControlName="title"
              [ngClass]="{'invalid': validField('title')}"/>
-      <label class="mdl-textfield__label" for="username">Tytuł</label>
-    </div>
-    <div class="w-100 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="author" formControlName="author"/>
-      <label class="mdl-textfield__label" for="author">Autor</label>
     </div>
 
-    <div class="w-100 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="publishing" formControlName="publishing"/>
-      <label class="mdl-textfield__label" for="publishing">Wydawca</label>
+    <div class="form-group">
+      <label>Autor</label>
+      <input class="form-control" type="text" id="author" formControlName="author"/>
     </div>
 
-    <mat-form-field class="w-100">
-      <mat-select placeholder="Typ" formControlName="type" [(value)]="selectedType">
-        <mat-option *ngFor="let t of types" [value]="t.id">
-          {{ t.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="form-group">
+      <label>Wydawca</label>
+      <input class="form-control" type="text" id="publishing" formControlName="publishing"/>
+    </div>
+
+    <div class="form-group">
+      <label>Typ</label>
+      <select class="form-control" formControlName="type" [(ngModel)]="selectedType" [ngClass]="{'invalid': validField('type')}">
+        <option *ngFor="let t of types" [value]="t.id">{{ t.name }}</option>
+      </select>
+    </div>
 
     <div class="form-group">
       <label class="custom-file-upload">
@@ -32,8 +33,8 @@
       {{selectFile || 'Nie wybrano obrazu'}}
     </div>
     <div style="margin-top: 10px; text-align: center;">
-      <input type="submit" value="Zapisz" (click)="submit()" class="mdl-button mdl-button--raised submit-btn">
-      <button class="mdl-button mdl-button--raised submit-btn" (click)="getBack()">Anuluj</button>
+      <input type="submit" value="Zapisz" (click)="submit()" class="btn submit-btn">
+      <button class="btn submit-btn reverse" (click)="getBack()">Anuluj</button>
     </div>
   </form>
 </div>

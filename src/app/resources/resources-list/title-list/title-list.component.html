@@ -1,5 +1,10 @@
-<mat-list>
-  <mat-list-item *ngFor="let item of items | orderBy:'title'" [routerLink]="['../../details', item.id]">
-            <span class="only-title" aria-hidden="true">{{item.title}}</span>
-  </mat-list-item>
-</mat-list>
+<!--<mat-list>-->
+  <!--<mat-list-item *ngFor="let item of items | orderBy:'title'" [routerLink]="['../../details', item.id]">-->
+            <!--<span class="only-title" aria-hidden="true">{{item.title}}</span>-->
+  <!--</mat-list-item>-->
+<!--</mat-list>-->
+<div class="list">
+  <div class="row list-item" *ngFor="let item of items | orderBy:'title'" [routerLink]="['../details', item.id]">
+    <span class="only-title" aria-hidden="true">{{item.title}}</span>
+  </div>
+</div>

@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "assets/variable";
 
 body {
@@ -48,3 +47,53 @@ mat-sidenav {
   padding: 6px;
   margin-left: -10px;
 }
+
+.d-contents {
+  position: relative;
+}
+
+app-resource-details {
+  accordion {
+    margin-top: 10px;
+    width: 100%;
+    accordion-group {
+      .btn {
+        color: white !important;
+        text-decoration: none !important;
+      }
+      .panel-default {
+        background: transparent!important;
+        color: white;
+      }
+    }
+  }
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+app-resources {
+  .nav {
+    border: 1px white solid;
+    border-radius: 5px;
+    min-width: 390px;
+  }
+  .nav-link {
+    span {
+      color: white !important;
+      font-weight: bold;
+    }
+  }
+  .nav-link.active {
+    span {
+      color: black !important;
+      font-weight: bold;
+    }
+  }
+}
+

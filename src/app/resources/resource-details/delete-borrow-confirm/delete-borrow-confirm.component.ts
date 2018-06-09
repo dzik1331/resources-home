@@ -3,11 +3,11 @@ import {BsModalRef} from 'ngx-bootstrap';
 import {Subject} from 'rxjs/index';
 
 @Component({
-  selector: 'app-add-borrow',
-  templateUrl: './add-borrow.component.html',
-  styleUrls: ['./add-borrow.component.scss']
+  selector: 'app-delete-borrow',
+  templateUrl: './delete-borrow-confirm.component.html',
+  styleUrls: ['./delete-borrow-confirm.component.scss']
 })
-export class AddBorrowComponent implements OnInit {
+export class DeleteBorrowConfirmComponent implements OnInit {
 
   public person: string;
   public onClose: Subject<any>;
@@ -19,14 +19,14 @@ export class AddBorrowComponent implements OnInit {
     this.onClose = new Subject();
   }
 
-  close() {
-    this.modalRef.hide();
-  }
-
-  add() {
-    this.onClose.next(this.person);
+  closeConfirm(value) {
+    this.onClose.next(value);
     this.onClose.unsubscribe();
     this.close();
+  }
+
+  close() {
+    this.modalRef.hide();
   }
 
 }

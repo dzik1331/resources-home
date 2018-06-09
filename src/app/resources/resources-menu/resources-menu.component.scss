@@ -1,34 +1,8 @@
 .container {
   height: 100%;
 }
-.menu {
-  display: flex;
-  flex-direction: column;
-  flex-flow: wrap;
-  justify-content: center;
-  height: 100%;
-  .item-menu {
-    box-shadow: 1px 1px 6px black;
-    border-radius: 10px;
-    width: 40%;
-    min-width: 125px;
-    padding-bottom: 10%;
-    padding-top: 10%;
-    display: inline-flex;
-    margin: 10px;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    &:hover {
-      opacity: 0.6;
-      cursor: pointer;
-    }
-    span {
-      text-shadow: 1px 1px 5px black, 2px 1px 0px black, -1px -1px 4px black;
-      font-size: 5vw;
-      align-self: center;
-      word-break: break-all;
-    }
-  }
+
+tabset {
+  width: 100%;
 }
 

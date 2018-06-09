@@ -1,11 +1,9 @@
 <div class="filter-content">
-  <input type="text" [(ngModel)]="filterText"><i class="fa fa-search" (click)="doFilter()"></i>
+  <input class="search" type="text" [(ngModel)]="filterText"><i class="fa fa-search" (click)="doFilter()"></i>
 </div>
-<button class="mdl-button mdl-button--raised back-btn" (click)="back()">Powrót</button>
 <div class="count-content">
   Ilość: {{items.length}}
 </div>
 <app-normal-list *ngIf="typeList == 1" [items]="items"></app-normal-list>
 <app-pictures-list *ngIf="typeList == 2" [items]="items"></app-pictures-list>
 <app-title-list *ngIf="typeList == 3" [items]="items"></app-title-list>
-<app-right-menu (typeList)="typeList = $event"></app-right-menu>

@@ -6,3 +6,36 @@
   background-position-x: center;
   background-position-y: center;
 }
+
+.list {
+  left: 10px;
+  right: 10px;
+  bottom: 80px;
+  top: 80px;
+  overflow: auto;
+  position: absolute;
+}
+
+.list-item {
+  margin-right: 20px;
+  display: inline-block;
+  width: 20%;
+}
+
+@media screen and (min-width: 992px) {
+  .list-item {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+  .list-item {
+    width: 24%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .list-item {
+    width: 40%;
+  }
+}

@@ -1,12 +1,10 @@
-<div class="container">
+<div class="container d-contents">
   <div class="menu" *ngIf="loaded">
-    <div *ngFor="let typeItem of types;" class="item-menu"
-         [ngStyle]="{'background': typeItem.color}"
-         [routerLink]="['../list',typeItem.id]">
-     <span>
-       {{typeItem.name}}
-     </span>
-    </div>
+    <tabset #staticTabs [justified]="true">
+      <tab heading="{{typeItem.name}}" *ngFor="let typeItem of types;">
+      <app-books-list [id]="typeItem.id"></app-books-list>
+      </tab>
+    </tabset>
   </div>
 </div>
 

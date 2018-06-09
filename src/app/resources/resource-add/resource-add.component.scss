@@ -1,11 +1,16 @@
 @import "../../../assets/variable";
 
 .form-content {
-  padding: 0 30px 0 30px;
+  padding: 30px 30px 0 30px;
+  color: white;
+  form {
+    padding: 20px;
+    border: 1px double white;
+  }
 }
 
 .invalid {
-  border: 0.5px red solid;
+  border: 2px red solid;
 }
 
 input[type="file"] {
@@ -18,25 +23,35 @@ input[type="file"] {
   padding: 6px 12px;
   cursor: pointer;
   border-radius: 5px;
-  background: $mainColor;
+  background: #940000;
   color: white;
 }
 
 .submit-btn {
   border-radius: 5px;
-  background: $mainColor;
+  background: #940000;
   color: white;
   margin-right: 10px;
   min-width: 95px;
 }
 
+.submit-btn.reverse {
+  border-radius: 5px;
+  background: white;
+  color: #940000;
+  margin-right: 10px;
+  min-width: 95px;
+}
+
+
 .fa-minus-circle {
   float: right;
   cursor: pointer;
+  margin: 10px 10px 0 0;
 }
 
 @media screen and (min-width: 1151px) {
   .form-content {
-    padding: 0 25% 0 25%;
+    padding: 5% 25% 0 25%;
   }
 }

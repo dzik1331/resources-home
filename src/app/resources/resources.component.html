@@ -1,32 +1,35 @@
 <div class="main-container">
-  <mat-toolbar>
-    <button (click)="sidenav.toggle()" style="background: bottom;
-    color: white;"><i class="fa fa-bars" aria-hidden="true"></i></button>
-  </mat-toolbar>
-
-  <mat-sidenav-container class="sidenav-container transparent">
-    <mat-sidenav #sidenav mode="side" opened="false" class="sidenav-menu">
-      <mat-list>
-        <mat-list-item>
-          <button mat-raised-button class="menu-button" [routerLink]="['main']" (click)="sidenav.toggle()">Strona główna
-          </button>
-        </mat-list-item>
-        <mat-list-item>
-          <button mat-raised-button class="menu-button" [routerLink]="['add']" (click)="sidenav.toggle()">Dodaj</button>
-        </mat-list-item>
-        <mat-list-item>
-          <button mat-raised-button class="menu-button" (click)="clearImages(sidenav)"><i *ngIf="clearing"
-                                                                                          class="fa fa-spinner fa-spin fa-3x fa-fw"
-                                                                                          aria-hidden="true"></i>
-            <i *ngIf="!clearing" class="fa fa-refresh"></i>
-          </button>
-        </mat-list-item>
-      </mat-list>
-    </mat-sidenav>
-
-    <mat-sidenav-content class="">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-
-  </mat-sidenav-container>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" (click)="toggle()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <div #wrapper class="sidenav-container">
+    <div class="container-fluid p-0">
+      <div class="sidenav-menu">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <svg-icon src="/assets/home.svg" class="menu-ico" [routerLink]="['main']" (click)="toggle()"></svg-icon>
+          </li>
+          <li class="list-group-item">
+            <svg-icon src="/assets/plus.svg" class="menu-ico" [routerLink]="['add']" (click)="toggle()"></svg-icon>
+          </li>
+          <li class="list-group-item">
+            <svg-icon src="/assets/refresh.svg" class="menu-ico" (click)="clearImages()"></svg-icon>
+          </li>
+          <hr>
+          <li class="list-group-item">
+            <svg-icon src="/assets/list.svg" class="menu-ico" (click)="setTypeList(1); toggle()"></svg-icon>
+          </li>
+          <li class="list-group-item">
+            <svg-icon src="/assets/images.svg" class="menu-ico" (click)="setTypeList(2); toggle()"></svg-icon>
+          </li>
+          <li class="list-group-item">
+            <svg-icon src="/assets/list2.svg" class="menu-ico" (click)="setTypeList(3); toggle()"></svg-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>

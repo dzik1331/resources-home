@@ -2,48 +2,35 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ResourcesComponent} from './resources.component';
 import {ResourcesRouting} from './resources.routing';
-import {
-  MatButtonModule, MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatToolbarModule
-} from '@angular/material';
+
 import {ResourcesListComponent} from './resources-list/resources-list.component';
 import {RestService} from './services/rest.service';
-import {DeleteResourceConfirmComponent, ResourceAddComponent} from './resource-add/resource-add.component';
+import {ResourceAddComponent} from './resource-add/resource-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {DeleteBorrowConfirmComponent, ResourceDetailsComponent} from './resource-details/resource-details.component';
+import {ResourceDetailsComponent} from './resource-details/resource-details.component';
 import {AddBorrowComponent} from './resource-details/add-borrow/add-borrow.component';
 import {OrderModule} from 'ngx-order-pipe';
-import { ResourcesMenuComponent } from './resources-menu/resources-menu.component';
+import {ResourcesMenuComponent} from './resources-menu/resources-menu.component';
 import {ResourcesService} from './services/resources.service';
-import { NormalListComponent } from './resources-list/normal-list/normal-list.component';
-import { PicturesListComponent } from './resources-list/pictures-list/pictures-list.component';
-import { FullImageComponent } from './resource-details/full-image/full-image.component';
-import { RightMenuComponent } from './resources-list/right-menu/right-menu.component';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {NormalListComponent} from './resources-list/normal-list/normal-list.component';
+import {PicturesListComponent} from './resources-list/pictures-list/pictures-list.component';
+import {FullImageComponent} from './resource-details/full-image/full-image.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
-import { TitleListComponent } from './resources-list/title-list/title-list.component';
+import {TitleListComponent} from './resources-list/title-list/title-list.component';
+import {AccordionModule, ModalModule, TabsModule} from 'ngx-bootstrap';
+import {DeleteBorrowConfirmComponent} from './resource-details/delete-borrow-confirm/delete-borrow-confirm.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ResourcesRouting,
-    MatMenuModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatExpansionModule,
-    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
     OrderModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    TabsModule.forRoot(),
+    ModalModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   declarations: [
     ResourcesComponent,
@@ -51,14 +38,12 @@ import { TitleListComponent } from './resources-list/title-list/title-list.compo
     ResourceAddComponent,
     ResourceDetailsComponent,
     AddBorrowComponent,
-    DeleteBorrowConfirmComponent,
-    DeleteResourceConfirmComponent,
     ResourcesMenuComponent,
     NormalListComponent,
     PicturesListComponent,
     FullImageComponent,
-    RightMenuComponent,
-    TitleListComponent
+    TitleListComponent,
+    DeleteBorrowConfirmComponent
   ],
   providers: [
     RestService,
@@ -66,8 +51,7 @@ import { TitleListComponent } from './resources-list/title-list/title-list.compo
   ],
   entryComponents: [
     AddBorrowComponent,
-    DeleteBorrowConfirmComponent,
-    DeleteResourceConfirmComponent
+    DeleteBorrowConfirmComponent
   ]
 })
 export class ResourcesModule {
