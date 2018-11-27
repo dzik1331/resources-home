@@ -81,18 +81,15 @@ app-resources {
   .nav {
     border: 1px white solid;
     border-radius: 5px;
-    min-width: 390px;
   }
   .nav-link {
-    span {
-      color: white !important;
-      font-weight: bold;
+    svg-icon {
+      fill: white;
     }
   }
   .nav-link.active {
-    span {
-      color: black !important;
-      font-weight: bold;
+    svg-icon {
+      fill: black;
     }
   }
 }

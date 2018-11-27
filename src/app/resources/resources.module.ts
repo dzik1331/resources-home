@@ -19,6 +19,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {TitleListComponent} from './resources-list/title-list/title-list.component';
 import {AccordionModule, ModalModule, TabsModule} from 'ngx-bootstrap';
 import {DeleteBorrowConfirmComponent} from './resource-details/delete-borrow-confirm/delete-borrow-confirm.component';
+import {DeleteResourceConfirmComponent} from './resource-add/delete-resurce-confirm/delete-resurce-confirm.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import {DeleteBorrowConfirmComponent} from './resource-details/delete-borrow-con
     PicturesListComponent,
     FullImageComponent,
     TitleListComponent,
-    DeleteBorrowConfirmComponent
+    DeleteBorrowConfirmComponent,
+    DeleteResourceConfirmComponent
   ],
   providers: [
     RestService,
@@ -51,7 +53,8 @@ import {DeleteBorrowConfirmComponent} from './resource-details/delete-borrow-con
   ],
   entryComponents: [
     AddBorrowComponent,
-    DeleteBorrowConfirmComponent
+    DeleteBorrowConfirmComponent,
+    DeleteResourceConfirmComponent
   ]
 })
 export class ResourcesModule {

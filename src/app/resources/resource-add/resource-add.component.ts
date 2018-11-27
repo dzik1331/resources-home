@@ -4,6 +4,8 @@ import {RestService} from '../services/rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {Location} from '@angular/common';
+import {BsModalService} from 'ngx-bootstrap';
+import {DeleteResourceConfirmComponent} from './delete-resurce-confirm/delete-resurce-confirm.component';
 
 @Component({
   selector: 'app-book-add',
@@ -22,8 +24,12 @@ export class ResourceAddComponent implements OnInit {
   public update: boolean = false;
   public resourceId: any;
 
-  constructor(private restService: RestService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute,
-              private location: Location) {
+  constructor(private restService: RestService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private location: Location,
+              private modal: BsModalService) {
   }
 
   ngOnInit() {
@@ -111,10 +117,11 @@ export class ResourceAddComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.selectFile = file.name;
+        console.debug('reader.result', reader.result);
         this.form.get('image').setValue({
           filename: file.name,
           filetype: file.type,
-          value: reader.result.split(',')[1]
+          value: reader.result.toString().split(',')[1]
         });
       };
     }
@@ -132,16 +139,17 @@ export class ResourceAddComponent implements OnInit {
   }
 
   public deleteResource(id) {
-    // const dialogRef = this.dialog.open(DeleteResourceConfirmComponent, {width: '250px', disableClose: true});
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.restService.deleteResource(id).subscribe(() => {
-    //       this.router.navigate(['/resources/list/' + this.form.get('type').value]);
-    //     }, (error) => {
-    //       console.error(error);
-    //     });
-    //   }
-    // });
+    const dialogRef = this.modal.show(DeleteResourceConfirmComponent, {});
+
+    dialogRef.content.onClose.subscribe(result => {
+      if (result) {
+        this.restService.deleteResource(id).subscribe(() => {
+          this.router.navigate(['/resources/main']);
+        }, (error) => {
+          console.error(error);
+        });
+      }
+    });
   }
 
 }

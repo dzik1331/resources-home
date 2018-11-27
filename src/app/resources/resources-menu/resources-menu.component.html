@@ -1,8 +1,11 @@
 <div class="container d-contents">
-  <div class="menu" *ngIf="loaded">
-    <tabset #staticTabs [justified]="true">
-      <tab heading="{{typeItem.name}}" *ngFor="let typeItem of types;">
-      <app-books-list [id]="typeItem.id"></app-books-list>
+  <div class="menu" [hidden]="!loaded">
+    <tabset #tab [justified]="true">
+      <tab *ngFor="let typeItem of types;" [id]="typeItem.id" (select)="changeTab($event)">
+        <ng-template tabHeading>
+          <svg-icon [src]="'/assets/'+typeItem.ico+'.svg'" class="menu-ico"></svg-icon>
+        </ng-template>
+        <app-books-list [id]="typeItem.id"></app-books-list>
       </tab>
     </tabset>
   </div>

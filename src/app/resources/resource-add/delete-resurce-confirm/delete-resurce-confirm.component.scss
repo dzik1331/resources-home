@@ -1,0 +1,8 @@
+.modal-btn {
+  width: 50%;
+  border-radius: 0;
+  &:nth-child(2) {
+    color: #007bff;
+    background: white;
+  }
+}

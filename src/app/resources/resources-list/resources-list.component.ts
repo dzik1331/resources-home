@@ -30,7 +30,7 @@ export class ResourcesListComponent implements OnInit {
     this.typeList = !isNull(this.resource.getTypeListStorage()) ? +this.resource.getTypeListStorage() : 1;
 
     this.rest.resourcesList(this.typeId).subscribe((result: any[]) => {
-      this.items = result;
+      this.items = result.sort((a, b) => a.title.localeCompare(b.title));
     }, (error) => {
       console.error(error);
     });
@@ -38,7 +38,7 @@ export class ResourcesListComponent implements OnInit {
 
   public doFilter() {
     this.rest.resourcesList(this.typeId, this.filterText).subscribe((result: any[]) => {
-      this.items = result;
+      this.items = result.sort((a, b) => a.title.localeCompare(b.title));
     }, (error) => {
       console.error(error);
     });

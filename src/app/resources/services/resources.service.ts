@@ -14,8 +14,17 @@ export class ResourcesService {
   constructor() {
   }
 
-  randomColor(): string {
-    return this.colors.randomElement();
+  setIco(item): string {
+    switch (item.name) {
+      case 'Książka':
+        return 'book';
+      case 'Komiks':
+        return 'comic';
+      case 'Gazeta':
+        return 'newspaper';
+      case 'Planszówka':
+        return 'boardGame';
+    }
   }
 
   setTypeListStorage(type: number) {
@@ -25,5 +34,13 @@ export class ResourcesService {
 
   getTypeListStorage() {
     return localStorage.getItem('listType');
+  }
+
+  setActiveTab(id) {
+    localStorage.setItem('tab', id);
+  }
+
+  getActiveTab() {
+    return localStorage.getItem('tab');
   }
 }
